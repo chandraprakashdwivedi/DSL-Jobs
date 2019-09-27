@@ -2,7 +2,7 @@ freeStyleJob('demo/freestyle/job1') {
     label('prod')  //jenkins-slave on which you want to run job
     logRotator(numToKeep = 10)
     parameters {
-        stringParam("REGION","us-east-1", "Region of cert")
+        stringParam("ROLE_NAME","slave-jenkins", "role attached with your slave jenkins")
     }
     scm {
         git {
@@ -15,7 +15,7 @@ freeStyleJob('demo/freestyle/job1') {
     }
     steps {
         shell('''#!/bin/bash
-        python -u script/hello.py  
+        python -u script/hello.py  --role_name $ROLE_NAME 
         ''')
     }
     publishers {
