@@ -30,7 +30,10 @@ freeStyleJob("demo/seed") {
 folder('demo') {
     displayName('demo')
 }
-folder('demo/task1') {
-    displayName('task1')
+folder('demo/freestyle') {
+    displayName('freestyle')
+}
+folder('demo/pipeline') {
+    displayName('pipeline')
 }
 
