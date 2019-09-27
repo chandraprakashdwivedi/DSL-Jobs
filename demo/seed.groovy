@@ -11,6 +11,7 @@ freeStyleJob("demo/seed") {
         }
     }
     wrappers {
+	//  clean up workspace prior to execution
         preBuildCleanup()
     }
 
@@ -20,7 +21,7 @@ freeStyleJob("demo/seed") {
 
     steps {
         dsl {
-            external('demo/*/*.groovy')
+            external('demo/freestyle/*/*.groovy')
             removeAction('DELETE')
             removeViewAction('DELETE')
         }
@@ -37,3 +38,24 @@ folder('demo/pipeline') {
     displayName('pipeline')
 }
 
+
+
+pipelineJob('demo/seed') {
+    definition {
+        myScm {
+            scm {
+                git {
+                    branch('*/master')
+                    remote {
+                        url('https://github.com/chandraprakashdwivedi/DSL-Jobs.git')
+                        credentials('my-pat-token-cred')
+                    }
+                    extensions {
+                        wipeOutWorkspace()
+                    }
+                }
+                scriptPath('demo/pipeline/jenkins/*/*.groovy')
+            }
+        }
+    }
+}
