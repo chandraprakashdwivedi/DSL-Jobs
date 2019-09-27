@@ -6,6 +6,7 @@ For these jobs you need to first create a freestyle job in jenkins with naming c
 
 So, here we assume that you are working for a 'demo' project and you have 'n' number of jobs for that particular demo project so as a best a practice here our automation will create a folder in your jenkins home path and inside that your jobs will be created. You can further create this structure more densed by adding a folder in your seed.groovy.
 
+Note: Issue a PAT token in your git repo and save that in your jenkins
 
 # Summary
 
