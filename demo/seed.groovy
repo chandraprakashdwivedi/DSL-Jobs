@@ -40,7 +40,7 @@ folder('demo/pipeline') {
 
 
 
-pipelineJob('demo/seed') {
+pipelineJob('('demo/pipeline/job1'') {
     definition {
         myScm {
             scm {
